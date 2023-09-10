@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="stylesheet" href="simple.css">
+    <title>Calculadora de Tasa de Interés</title>
+</head>
+    <body>
+        <div class="container">
+            <h2>Calculadora de Tasa de Interes</h2>
+            <form id="interestForm">
+                <label for="capital">Capital:</label>
+                <input type="number" id="capital"  required><br>
+
+                <label for="interes">Interes</label>
+                <input type="number" id="interes"  required><br>
+                
+                <label for="tasa">Tasa de Interes:</label>
+                <input type="number" id="tasa"  required><br>
+                
+                <label for="dias">Tiempo (dias):</label>
+                <input type="number" id="dias" required><br>
+                
+                <label for="meses">Tiempo (meses):</label>
+                <input type="number" id="meses" required><br>
+                
+                <label for="anios">Tiempo (year):</label>
+                <input type="number" id="anios" required><br>
+                
+                <button type="button" onclick="respuesta()">Calcular</button>
+
+            </form>
+
+            <h3>Resultados:</h3>
+            <p id="p" style="color: black;text-shadow: 2px 1px 4px rgba(0, 0, 0, 0.5);font-size: larger;" ></p>
+    
+        </div>
+
+        <script src="simple.js"></script>
+    </body>
+</html>
