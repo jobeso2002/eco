@@ -23,159 +23,39 @@
     </div>
 
     <div class="input-container">
+        <label for="meses">Meses:</label>
+        <input type="number" id="meses" min="1">
+    </div>
+
+    <div class="input-container">
+        <label for="dias">Dias:</label>
+        <input type="number" id="dias" min="1">
+    </div>
+        
+
+    <div class="input-container">
         <label for="montocompuesto">monto compuesto:</label>
         <input type="number" id="montocompuesto" >
     </div>
 
-    <div class="input-container">
-        <label for="time">Selecciona el Tiempo:</label>
-        <select id="time" onchange="showFields()">
-            <option value="dias">Días</option>
-            <option value="meses">Meses</option>
-            <option value="anios">Años</option>
-            <option value="fecha">DD/MM/AAAA</option>
-            <option value="rangoFechas">Rango de Fechas</option>
-        </select><br>
-        </div>
-
-
-    <div id="periodFields" style="display:none;">
-        <label for="period">Número de Períodos:</label>
-        <input type="number" id="period">
+    <div class="mt-3">
+        <label for="frequency" class="form-label">Seleccione una frecuencia:</label>
+        <select class="form-select" id="frequency" onchange="respuesta()">
+            <option value="Anual">Anual</option>
+            <option value="Semestral">Semestral</option>
+            <option value="Trimestral">Trimestral</option>
+            <option value="Mensual">Mensual</option>
+            <option value="Diaria">Diariamente</option>
+        </select>
     </div>
-
-    <div id="dateFields" style="display:none;">
-        <label for="day">Día:</label>
-        <input type="number" id="day" min="1" max="31">
-        <label for="month">Mes:</label>
-        <input type="number" id="month" min="1" max="12">
-        <label for="year">Año:</label>
-        <input type="number" id="year">
-    </div>
-
-    <div id="dateRangeFields" style="display:none;">
-        <label for="startDate">Fecha Inicial:</label>
-        <input type="text" id="startDate" class="datepicker"><br>
-
-        <label for="endDate">Fecha Final:</label>
-        <input type="text" id="endDate" class="datepicker"><br>
-    </div>
-
+    
     <button onclick="respuesta()">Calcular</button>
     <h3>Resultados:</h3>
     <p id="p" style="color: black;text-shadow: 2px 1px 4px rgba(0, 0, 0, 0.5);font-size: larger;" ></p>
     
+    <h3>Frecuencia:</h3>
+    <div class="mt-4" id="output"></div>
+
     <script src="Compuesto.js"></script>
 </body>
 </html>
-
-
-<!--
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de Interés Compuesto</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-        #container {
-            margin: 20px auto;
-            width: 80%;
-            max-width: 400px;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-    </style>
-</head>
-<body>
-    <div id="container">
-        <h1>Calculadora de Interés Compuesto</h1>
-        <label for="frecuencia">Frecuencia de Capitalización:</label>
-        <select id="frecuencia">
-            <option value="anual">Anual</option>
-            <option value="semestral">Semestral</option>
-            <option value="trimestral">Trimestral</option>
-            <option value="mensual">Mensual</option>
-            <option value="diaria">Diaria</option>
-        </select><br><br>
-        
-        <label for="capital">Capital Inicial:</label>
-        <input type="number" id="capital" required><br><br>
-        
-        <label for="tasa">Tasa de Interés Anual (%):</label>
-        <input type="number" id="tasa" required><br><br>
-        
-        <label for="tiempo">Tiempo (años):</label>
-        <input type="number" id="tiempo" required><br><br>
-        
-        <button onclick="calcularInteresCompuesto()">Calcular</button><br><br>
-        
-        <p id="resultado"></p>
-    </div>
-
-    
-</body>
-</html>
-
-
-
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de Interés Compuesto</title>
-</head>
-
-<body>
-    <div class="container">
-        <h2>Calculadora de Interés Compuesto</h2>
-        <form id="compoundInterestForm">
-            <label for="principal">Capital Principal (C):</label>
-            <input type="number" id="principal" required><br>
-
-            <label for="rate">Tasa de Interés Anual (%) :</label>
-            <input type="number" id="rate" required><br>
-
-            <label for="years">Número de Años (n):</label>
-            <input type="number" id="years" required><br>
-
-            <button type="button" onclick="calculate()">Calcular</button>
-        </form>
-
-        <h3>Resultados:</h3>
-        <p id="result" style="color: black;text-shadow: 2px 1px 4px rgba(0, 0, 0, 0.5);font-size: larger;"></p>
-    </div>
-
-    <script>
-        function calculate() {
-            const principal = parseFloat(document.getElementById("principal").value);
-            const rate = parseFloat(document.getElementById("rate").value) / 100;
-            const years = parseFloat(document.getElementById("years").value);
-
-            const compoundedAmount = principal * Math.pow((1 + rate), years);
-            const numberOfPeriods = Math.log(compoundedAmount / principal) / Math.log(1 + rate);
-            const interestRate = Math.pow(compoundedAmount / principal, 1 / years) - 1;
-            const initialPrincipal = compoundedAmount / Math.pow(1 + interestRate, years);
-
-            const result = `
-                Monto Compuesto (MC): $${compoundedAmount.toFixed(2)}<br>
-                Número de Períodos (n): ${numberOfPeriods.toFixed(2)}<br>
-                Tasa de Interés Anual Efectiva (i): ${(interestRate * 100).toFixed(2)}%<br>
-                Capital Inicial (C): $${initialPrincipal.toFixed(2)}
-            `;
-
-            document.getElementById("result").innerHTML = result;
-        }
-    </script>
-</body>
-
-</html>
--->
