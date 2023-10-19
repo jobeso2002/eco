@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Amortización</title>
+    <link rel="stylesheet" href="amortizacion.css">
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            text-align: center;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sistema de Amortización</h1>
+
+    <form id="amortization-form">
+        <label for="loan-amount">Monto del préstamo:</label>
+        <input type="number" id="loan-amount" required>
+
+        <label for="annual-interest-rate">Tasa de interés anual (%):</label>
+        <input type="number" id="annual-interest-rate" step="0.01" required>
+
+        <label for="loan-term">Plazo del préstamo (meses):</label>
+        <input type="number" id="loan-term" required>
+
+        <label for="amortization-type">Tipo de Amortización:</label>
+        <select id="amortization-type" required>
+            <option value="americano">Americano</option>
+            <option value="lineal">Alemán</option>  <!-- sistema de amortizacion aleman tiene la variable lineal por error mio XD -->
+            <option value="frances">Francés</option> 
+            <option value="aleman">lineal</option>  <!-- sistema de amortizacion lineal tiene la variable aleman por error mio XD -->
+        </select>
+
+        <!-- Campo de selección de frecuencia de tasa de interés -->
+        <label for="interest-frequency">Frecuencia de Intereses:</label>
+        <select id="interest-frequency" required>
+            <option value="anual">Anual</option>
+            <option value="semestral">Semestral</option>
+            <option value="bimestral">Bimestral</option>
+            <option value="mensual">Mensual</option>
+            <option value="diaria">Diaria</option>
+            <option value="trimestral">Trimestral</option>
+            <option value="cuatrimestral">Cuatrimestral</option>
+            <option value="semanal">Semanal</option>
+        </select>
+
+        <button type="submit">Calcular Amortización</button>
+    </form>
+
+    <!-- Encabezados específicos para cada tipo de amortización -->
+    <h2 id="table-title-americano" style="display: none;">Tabla de Amortización: Sistema de amortización americano</h2>
+    <h2 id="table-title-lineal" style="display: none;">Tabla de Amortización: Sistema de amortización lineal</h2>
+    <h2 id="table-title-frances" style="display: none;">Tabla de Amortización: Sistema de amortización francés</h2>
+    <h2 id="table-title-aleman" style="display: none;">Tabla de Amortización: Sistema de amortización alemán</h2>
+
+    <table id="amortization-table" style="display: none;">
+        <!-- Los resultados se llenarán aquí -->
+        <tr id="table-header-americano" style="display: none;">
+            <th>Número de Cuota</th>
+            <th>Intereses</th>
+            <th>Amortización</th>
+            <th>Cuota del Crédito</th>
+            <th>Saldo Insoluto</th>
+        </tr>
+        <tr id="table-header-lineal" style="display: none;">
+            <th>Número de Cuota</th>
+            <th>Capital Insoluto</th>
+            <th>Cuota del Crédito</th>
+            <th>Intereses</th>
+            <th>Amortización</th>
+            <th>Saldo Insoluto</th>
+        </tr>
+        <tr id="table-header-frances" style="display: none;">
+            <th>Número de Cuota</th>
+            <th>Capital Insoluto</th>
+            <th>Cuota del Crédito</th>
+            <th>Intereses</th>
+            <th>Amortización</th>
+            <th>Saldo Insoluto</th>
+        </tr>
+        <tr id="table-header-aleman" style="display: none;">
+            <th>Número de Cuota</th>
+            <th>Intereses</th>
+            <th>Amortización</th>
+            <th>Cuota del Crédito</th>
+            <th>Saldo Insoluto</th>
+        </tr>
+    </table>
+    <p>Intereses Totales: <span id="interest-total">0.00</span></p>
+    <p>Amortización Total: <span id="amortization-total">0.00</span></p>
+
+    <script src="amortizacion.js"></script>
+</body>
+</html>

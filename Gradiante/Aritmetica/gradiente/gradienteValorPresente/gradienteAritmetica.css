@@ -1,0 +1,82 @@
+/* Estilo para el cuerpo del documento */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+/* Encabezado principal */
+.h1 {
+    font-size: 2.5rem;
+    color: #333;
+    text-align: center;
+}
+
+/* Subtítulo */
+.h2 {
+    font-size: 1.5rem;
+    color: #555;
+    text-align: center;
+}
+
+/* Contenedor de formulario */
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Etiquetas del formulario */
+.label {
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Campos de entrada de datos */
+.texto {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+/* Radio buttons */
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+/* Botón de resultado */
+.botonResultado {
+    text-align: center;
+}
+
+.botonResultado button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+/* Resultado */
+.resultado {
+    text-align: center;
+}
+
+#p {
+    font-size: 1.2rem;
+    color: #333;
+    text-shadow: 2px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Espacio entre elementos */
+div[style="padding: 5px;"] {
+    margin: 5px 0;
+}

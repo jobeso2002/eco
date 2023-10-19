@@ -1,0 +1,60 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="valorFuturo.css">
+    </head>
+    <body class="body">
+        <h1 class="h1">Valor Futuro Geometrico</h1>
+        <div>
+            <p class="h3"> Digita los datos que tengas</p>
+        </div>
+        <form class="container">
+            <div>
+                <label for="" class="label">Tiempo</label>
+                <input id="tiempo" type="number" min="0" class="texto" placeholder="En meses" required>
+            </div>
+            <div>
+                <label for="" class="label">Tasa de interes</label>
+                <input id="interes" type="number" min="0" max="100" class="texto" placeholder="0..100" required>
+            </div>
+            <div>
+                <label for="" class="label">Monto inicial</label>
+                <input id="inicial" type="number" min="0" class="texto" placeholder="Monto inicial" required>
+            </div>
+            <div>
+                <label for="" class="label">Gradiente</label>
+                <input id="gradiente" type="number" min="0" max= "100 "class="texto" placeholder="0..100" required>
+            </div>
+
+
+            <div>
+                <label for="" class="label">Tipo de gradiente</label>
+                <div>
+                <input value="creciente" class="" type="radio" name="tipoGradiente" id="tipoGradiente1"checked required>
+                <label class="label" for="tipoGradiente1">Creciente</label>
+                <input value="decreciente" class="    " type="radio" name="tipoGradiente" id="tipoGradiente2" required>
+                <label class="label" for="tipoGradiente2">Decreciente</label>
+                </div>
+            
+            </div>
+
+        </form>
+        <div style="padding: 5px;"></div>
+        <div class="botonResultado">
+            <button class="botonResultado" onclick="validar()">Resultado</button>
+        </div>
+        <div style="padding: 5px;"></div>
+        <div class="resultado">
+            <p id="p" style="color: black;text-shadow: 2px 1px 4px rgba(0, 0, 0, 0.5);font-size: larger;"></p>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="valorFuturo.js"></script>
+
+
+        
+    </body>
+    </html>
