@@ -20,10 +20,13 @@ body {
     text-align: center;
 }
 
+<<<<<<< HEAD
 .h3{
     text-align: center;
 }
 
+=======
+>>>>>>> 38e543a8e5dffb27c7de4635aa543ca833b54845
 /* Contenedor de formulario */
 .container {
     max-width: 400px;

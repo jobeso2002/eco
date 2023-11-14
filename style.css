@@ -6,7 +6,11 @@
 
 
 .body {
+<<<<<<< HEAD
 
+=======
+background: linear-gradient(to bottom, #000000, #595b59, #f8f8f8);
+>>>>>>> 38e543a8e5dffb27c7de4635aa543ca833b54845
 background-size: cover;
 width:100%;
 height: 100%;

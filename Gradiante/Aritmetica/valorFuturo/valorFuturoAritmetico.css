@@ -47,9 +47,13 @@ input[type="radio"] {
 .botonResultado {
     text-align: center;
 }
+<<<<<<< HEAD
 .h3{
     text-align: center;
 }
+=======
+
+>>>>>>> 38e543a8e5dffb27c7de4635aa543ca833b54845
 .botonResultado button {
     background-color: #007bff;
     color: #fff;
