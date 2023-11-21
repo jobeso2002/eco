@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Amortización</title>
     <link rel="stylesheet" href="amortizacion.css">
-<<<<<<< HEAD
-=======
     <style>
         table {
             border-collapse: collapse;
@@ -28,16 +26,11 @@
             background-color: #f2f2f2;
         }
     </style>
->>>>>>> 38e543a8e5dffb27c7de4635aa543ca833b54845
 </head>
 <body>
     <h1>Sistema de Amortización</h1>
 
     <form id="amortization-form">
-<<<<<<< HEAD
-        <!-- Campos de entrada de datos -->
-=======
->>>>>>> 38e543a8e5dffb27c7de4635aa543ca833b54845
         <label for="loan-amount">Monto del préstamo:</label>
         <input type="number" id="loan-amount" required>
 
@@ -50,15 +43,9 @@
         <label for="amortization-type">Tipo de Amortización:</label>
         <select id="amortization-type" required>
             <option value="americano">Americano</option>
-<<<<<<< HEAD
-            <option value="lineal">Alemán</option>
-            <option value="frances">Francés</option>
-            <option value="aleman">Lineal</option>
-=======
             <option value="lineal">Alemán</option>  <!-- sistema de amortizacion aleman tiene la variable lineal por error mio XD -->
             <option value="frances">Francés</option> 
             <option value="aleman">lineal</option>  <!-- sistema de amortizacion lineal tiene la variable aleman por error mio XD -->
->>>>>>> 38e543a8e5dffb27c7de4635aa543ca833b54845
         </select>
 
         <!-- Campo de selección de frecuencia de tasa de interés -->
@@ -79,46 +66,6 @@
 
     <!-- Encabezados específicos para cada tipo de amortización -->
     <h2 id="table-title-americano" style="display: none;">Tabla de Amortización: Sistema de amortización americano</h2>
-<<<<<<< HEAD
-    <h2 id="table-title-lineal" style="display: none;">Tabla de Amortización: Sistema de amortización alemán</h2>
-    <h2 id="table-title-frances" style="display: none;">Tabla de Amortización: Sistema de amortización francés</h2>
-    <h2 id="table-title-aleman" style="display: none;">Tabla de Amortización: Sistema de amortización lineal</h2>
-
-    <table id="amortization-table" style="display: none;">
-        <!-- Los resultados se llenarán aquí -->
-        <!-- Encabezados específicos para cada tipo de amortización -->
-<tr id="table-header-americano" style="display: none;">
-    <th>Número de Cuota</th>
-    <th>Intereses</th>
-    <th>Amortización</th>
-    <th>Cuota del Crédito</th>
-    <th>Saldo Insoluto</th>
-</tr>
-<tr id="table-header-lineal" style="display: none;">
-    <th>Número de Cuota</th>
-    <th>Capital Insoluto</th>
-    <th>Cuota del Crédito</th>
-    <th>Intereses</th>
-    <th>Amortización</th>
-    <th>Saldo Insoluto</th>
-</tr>
-<tr id="table-header-frances" style="display: none;">
-    <th>Número de Cuota</th>
-    <th>Capital Insoluto</th>
-    <th>Cuota del Crédito</th>
-    <th>Intereses</th>
-    <th>Amortización</th>
-    <th>Saldo Insoluto</th>
-</tr>
-<tr id="table-header-aleman" style="display: none;">
-    <th>Número de Cuota</th>
-    <th>Intereses</th>
-    <th>Amortización</th>
-    <th>Cuota del Crédito</th>
-    <th>Saldo Insoluto</th>
-</tr>
-
-=======
     <h2 id="table-title-lineal" style="display: none;">Tabla de Amortización: Sistema de amortización lineal</h2>
     <h2 id="table-title-frances" style="display: none;">Tabla de Amortización: Sistema de amortización francés</h2>
     <h2 id="table-title-aleman" style="display: none;">Tabla de Amortización: Sistema de amortización alemán</h2>
@@ -155,7 +102,6 @@
             <th>Cuota del Crédito</th>
             <th>Saldo Insoluto</th>
         </tr>
->>>>>>> 38e543a8e5dffb27c7de4635aa543ca833b54845
     </table>
     <p>Intereses Totales: <span id="interest-total">0.00</span></p>
     <p>Amortización Total: <span id="amortization-total">0.00</span></p>

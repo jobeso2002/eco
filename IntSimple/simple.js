@@ -1,75 +1,90 @@
 //este codigo es mio solo que no lee el llamado de la funcion
+const p = document.getElementById("p");
 
-let p = document.getElementById("p");
+function clearContent() {
+    p.innerHTML = "";
+}
+
+function validateInput(input) {
+    return !isNaN(input) && input !== '' && input !== null;
+}
+
+function getNumericValue(id) {
+    const value = parseFloat(document.getElementById(id).value.replace(',', '.'));
+    return validateInput(value) ? value : NaN;
+}
 
 function respuesta() {
-    p.innerHTML = ""; // Limpia el contenido anterior
+    clearContent();
 
-    let capital = parseFloat(document.getElementById("capital").value.replace(',', '.'));
-    let tasainteres = parseFloat(document.getElementById("tasa").value.replace(',', '.')) / 100;
-    let interes = parseFloat(document.getElementById("interes").value.replace(',', '.'));
-    let dias = parseFloat(document.getElementById("dias").value.replace(',', '.'));
-    let mes = parseFloat(document.getElementById("meses").value.replace(',', '.'));
-    let anio = parseFloat(document.getElementById("anios").value.replace(',', '.'));
+    const capital = getNumericValue("capital");
+    const tasaInteres = getNumericValue("tasa") / 100;
+    const interes = getNumericValue("interes");
+    const dias = getNumericValue("dias");
+    const meses = getNumericValue("meses");
+    const annos = getNumericValue("anios");
 
-
-    if (!isNaN(capital) && !isNaN(tasainteres) && !isNaN(dias) && !isNaN(mes) && !isNaN(anio) && isNaN(interes)) {
-        p.innerHTML += "Capital(C): " + capital + "  | Tasa Interes(TS): " + (tasainteres * 100) + "% | Dia(D): " + dias + "  | Mes(M): " + mes + "  | Anio(Year): " + anio + "<br><br>" + "El Interes es de: $" + Interes(capital, tasainteres, dias, mes, anio);
+    if (validateInput(capital) && validateInput(tasaInteres) && validateInput(dias) && validateInput(meses) && validateInput(annos) && isNaN(interes)) {
+        p.innerHTML += "Capital(C): " + capital + " | Tasa Interes(TS): " + (tasaInteres * 100) + "% | Dia(D): " + dias + " | Mes(M): " + meses + " | Anio(Year): " + annos + "<br><br>" + "El Interes es de: $" + calcularInteres(capital, tasaInteres, dias, meses, annos);
         
-    }else if (!isNaN(capital) && !isNaN(tasainteres) && !isNaN(dias) && !isNaN(mes) && !isNaN(anio)) {
-        p.innerHTML += "Capital(C): " + capital + "  | Tasa Interes(TS): " + (tasainteres * 100) + "% | Dia(D): " + dias + "  | Mes(M): " + mes + "  | Anio(Year): " + anio + "<br><br>" + "El Monto Final es de: $" + MontoFinal(capital, tasainteres, interes, dias, mes, anio);
-    } 
-    else if (!isNaN(capital) && isNaN(tasainteres) && !isNaN(dias) && !isNaN(mes) && !isNaN(anio) && !isNaN(interes)) {
-        p.innerHTML += "Capital(C): " + capital + "  | Interes(I): " + interes + "$ | Dia(D): " + dias + "  | Mes(M): " + mes + "  | Anio(Year): " + anio + "<br><br>" + "La Tasa de Interes es de: " + TsInter(capital, interes, dias, mes, anio) + "%";
-    } else if (isNaN(capital) && !isNaN(tasainteres) && !isNaN(dias) && !isNaN(mes) && !isNaN(anio) && !isNaN(interes)) {
-        p.innerHTML += "Tasa Interes(TS): " + (tasainteres * 100) + "  | Interes(I): " + interes + "$ | Dia(D): " + dias + "  | Mes(M): " + mes + "  | Anio(Year): " + anio + "<br><br>" + "El capital es de: " + ObteCapital(interes, tasainteres, dias, mes, anio) + "$";
-    } else if (!isNaN(capital) && !isNaN(tasainteres) && isNaN(dias) && isNaN(mes) && isNaN(anio) && !isNaN(interes)) {
-        p.innerHTML += "Tasa Interes(TS): " + (tasainteres * 100) + "  | Interes(I): " + interes + "$ | Capital(C): " + capital +
-            "<br><br>" + "El tiempo obtenido es de: " + obtTiempo(capital, interes, tasainteres);
+    } else if (validateInput(capital) && validateInput(tasaInteres) && validateInput(dias) && validateInput(meses) && validateInput(annos)) {
+        p.innerHTML += "Capital(C): " + capital + " | Tasa Interes(TS): " + (tasaInteres * 100) + "% | Dia(D): " + dias + " | Mes(M): " + meses + " | Anio(Year): " + annos + "<br><br>" + "El Monto Final es de: $" + calcularMontoFinal(capital, tasaInteres, interes, dias, meses, annos);
+    } else if (validateInput(capital) && isNaN(tasaInteres) && validateInput(dias) && validateInput(meses) && validateInput(annos) && validateInput(interes)) {
+        p.innerHTML += "Capital(C): " + capital + " | Interes(I): " + interes + "$ | Dia(D): " + dias + " | Mes(M): " + meses + " | Anio(Year): " + annos + "<br><br>" + "La Tasa de Interes es de: " + calcularTasaInteres(capital, interes, dias, meses, annos) + "%";
+    } else if (!isNaN(capital) && validateInput(tasaInteres) && isNaN(dias) && isNaN(meses) && isNaN(annos) && validateInput(interes)) {
+        p.innerHTML += "Tasa Interes(TS): " + (tasaInteres * 100) + " | Interes(I): " + interes + "$ | Capital(C): " + capital +
+            "<br><br>" + "El tiempo obtenido es de: " + obtenerTiempo(capital, interes, tasaInteres);
+    } else if (validateInput(capital) && validateInput(tasaInteres) && isNaN(dias) && isNaN(meses) && isNaN(annos) && validateInput(interes)) {
+        p.innerHTML += "Tasa Interes(TS): " + (tasaInteres * 100) + " | Interes(I): " + interes + "$ | Capital(C): " + capital +
+            "<br><br>" + "El tiempo invertido es: " + obtenerTiempoInvertido(capital, interes, tasaInteres);
     } else {
         p.innerHTML = "Por favor, complete al menos los campos requeridos para calcular la respuesta.";
     }
 }
 
-
-function MontoFinal(capital,tasainteres, interes, dias, mes, anio){
-    var tiempoTotal = anio + mes/ 12 + dias / 365;
-    var interes = capital * tasainteres * tiempoTotal;
-    var montoFinal = capital + interes;
+function calcularMontoFinal(capital, tasaInteres, interes, dias, meses, annos) {
+    const tiempoTotal = annos + meses / 12 + dias / 365;
+    const interesCalculado = capital * tasaInteres * tiempoTotal;
+    const montoFinal = capital + interesCalculado;
 
     return montoFinal.toFixed(2);
-
 }
 
-
-function Interes(capital, tasainteres, dias, mes, anio){
-    var tiempo = anio + mes/12 + dias/365;
-    var resp = capital * tasainteres *tiempo;
-    return resp.toFixed(2);
+function calcularInteres(capital, tasaInteres, dias, meses, annos) {
+    const tiempo = annos + meses / 12 + dias / 365;
+    const interesCalculado = capital * tasaInteres * tiempo;
+    return interesCalculado.toFixed(2);
 }
-function TsInter(capital, interes, dias, mes, anio){
-    var tiempo = anio *12 + mes + dias/31;
-    var tiempofinal = tiempo /12 >0 ? tiempo / 12 : 1;
 
-    var tsinter = (interes / (capital*tiempofinal))*100;
-    return tsinter.toFixed(2);
+function calcularTasaInteres(capital, interes, dias, meses, annos) {
+    const tiempo = annos * 12 + meses + dias / 31;
+    const tiempoFinal = tiempo / 12 > 0 ? tiempo / 12 : 1;
+
+    const tasaInteres = (interes / (capital * tiempoFinal)) * 100;
+    return tasaInteres.toFixed(2);
 }
-function ObteCapital(interes, tasainteres, dias, mes, anio){
-    var tiempo = anio + mes/12 + dias/365;
-    var capital = interes / (tasainteres * tiempo);
+
+function obtenerCapital(interes, tasaInteres, dias, meses, annos) {
+    const tiempo = annos + meses / 12 + dias / 365;
+    const capital = interes / (tasaInteres * tiempo);
     
     return capital.toFixed(2);
 }
 
-function obtTiempo(capital, interes, tasainteres){
+function obtenerTiempo(capital, interes, tasaInteres) {
+    const tiempo = interes / (capital * (tasaInteres));
+    const annos = Math.floor(tiempo);
+    const meses = Math.floor((tiempo - annos) * 12);
+    const dias = Math.floor(((tiempo - annos) * 12 - meses) * 31);
 
-    var tiempo = interes / (capital * (tasainteres));
-    var años = Math.floor(tiempo);
-    var meses = Math.floor((tiempo - años) * 12);
-    var días = Math.floor(((tiempo - años) * 12 - meses) * 31);
-
-    var respuestafinal = "El tiempo invertido es: " + años + " años, " + meses + " meses y " + días + " días";
-
-    return respuestafinal;
+    return "El tiempo invertido es: " + annos + " años, " + meses + " meses y " + dias + " días";
 }
 
+function obtenerTiempoInvertido(capital, interes, tasaInteres) {
+    const tiempo = interes / (capital * (tasaInteres));
+    const annos = Math.floor(tiempo);
+    const meses = Math.floor((tiempo - annos) * 12);
+    const dias = Math.floor(((tiempo - annos) * 12 - meses) * 31);
+
+    return "El tiempo invertido es: " + annos + " años, " + meses + " meses y " + dias + " días";
+}

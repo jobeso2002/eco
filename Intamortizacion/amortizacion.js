@@ -5,36 +5,14 @@ document.addEventListener('DOMContentLoaded', function () {
     const amortizationTotalElement = document.getElementById('amortization-total');
 
     // Encabezados específicos para cada sistema de amortización
-<<<<<<< HEAD
-    const titleTableHeaderAmericano = document.getElementById('table-title-americano');
-    const titleTableHeaderLineal = document.getElementById('table-title-lineal');
-    const titleTableHeaderFrances = document.getElementById('table-title-frances');
-    const titleTableHeaderAleman = document.getElementById('table-title-aleman');
-=======
->>>>>>> 38e543a8e5dffb27c7de4635aa543ca833b54845
     const tableHeaderAmericano = document.getElementById('table-header-americano');
     const tableHeaderLineal = document.getElementById('table-header-lineal');
     const tableHeaderFrances = document.getElementById('table-header-frances');
     const tableHeaderAleman = document.getElementById('table-header-aleman');
-<<<<<<< HEAD
-    
-=======
->>>>>>> 38e543a8e5dffb27c7de4635aa543ca833b54845
 
     amortizationForm.addEventListener('submit', function (e) {
         e.preventDefault();
 
-<<<<<<< HEAD
-        // Limpiar la tabla de amortización y las sumas
-        while (amortizationTable.rows.length > 1) {
-            amortizationTable.deleteRow(1);
-        }
-        
-        interestTotalElement.textContent = '0.00';
-        amortizationTotalElement.textContent = '0.00';
-
-=======
->>>>>>> 38e543a8e5dffb27c7de4635aa543ca833b54845
         // Obtener los valores del formulario
         const loanAmount = parseFloat(document.getElementById('loan-amount').value);
         const annualInterestRate = parseFloat(document.getElementById('annual-interest-rate').value) / 100;
@@ -66,29 +44,6 @@ document.addEventListener('DOMContentLoaded', function () {
         } else if (interestFrequency === 'semanal') {
             monthlyInterestRate = annualInterestRate / 52 / 12;
         }
-<<<<<<< HEAD
-        titleTableHeaderAmericano.style.display = 'none';
-        titleTableHeaderLineal.style.display = 'none';
-        titleTableHeaderFrances.style.display = 'none';
-        titleTableHeaderAleman.style.display = 'none';
-        // Determinar cuál sistema de amortización está seleccionado y mostrar el encabezado correspondiente
-        if (amortizationType === 'americano') {
-            amortizationTable.style.display = 'table';
-            tableHeaderAmericano.style.display = 'table-row';
-            titleTableHeaderAmericano.style.display = 'block';
-        } else if (amortizationType === 'lineal') {
-            amortizationTable.style.display = 'table';
-            tableHeaderLineal.style.display = 'table-row';
-            titleTableHeaderLineal.style.display = 'block';
-        } else if (amortizationType === 'frances') {
-            amortizationTable.style.display = 'table';
-            tableHeaderFrances.style.display = 'table-row';
-            titleTableHeaderFrances.style.display = 'block';
-        } else if (amortizationType === 'aleman') {
-            amortizationTable.style.display = 'table';
-            tableHeaderAleman.style.display = 'table-row';
-            titleTableHeaderAleman.style.display = 'block';
-=======
 
         // Limpiar la tabla de amortización y las sumas
         amortizationTable.innerHTML = '';
@@ -110,7 +65,6 @@ document.addEventListener('DOMContentLoaded', function () {
             tableHeaderFrances.style.display = 'table-row';
         } else if (amortizationType === 'aleman') {
             tableHeaderAleman.style.display = 'table-row';
->>>>>>> 38e543a8e5dffb27c7de4635aa543ca833b54845
         }
 
         let currentBalance = loanAmount;
@@ -154,24 +108,9 @@ document.addEventListener('DOMContentLoaded', function () {
             totalAmortization += principalPayment;
 
             // Agregar una fila a la tabla de amortización
-<<<<<<< HEAD
-            const newRow = amortizationTable.insertRow(-1);
-            const cellNumber = newRow.insertCell(0);
-            const cellInterest = newRow.insertCell(1);
-            const cellAmortization = newRow.insertCell(2);
-            const cellTotalPayment = newRow.insertCell(3);
-            const cellBalance = newRow.insertCell(4);
-
-            cellNumber.textContent = month;
-            cellInterest.textContent = interestPayment.toFixed(2);
-            cellAmortization.textContent = principalPayment.toFixed(2);
-            cellTotalPayment.textContent = monthlyPayment.toFixed(2);
-            cellBalance.textContent = currentBalance.toFixed(2);
-=======
             const newRow = document.createElement('tr');
             newRow.innerHTML = `<td>${month}</td><td>${currentBalance.toFixed(2)}</td><td>${monthlyPayment.toFixed(2)}</td><td>${interestPayment.toFixed(2)}</td><td>${principalPayment.toFixed(2)}</td>`;
             amortizationTable.appendChild(newRow);
->>>>>>> 38e543a8e5dffb27c7de4635aa543ca833b54845
 
             month++;
         }

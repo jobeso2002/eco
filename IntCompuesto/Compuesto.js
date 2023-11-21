@@ -1,5 +1,3 @@
-
-
 let p = document.getElementById("p");
 
 function respuesta(){
